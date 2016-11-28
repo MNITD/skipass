@@ -1,40 +1,47 @@
+import decorators.SeasonSkipassDecorator;
 import decorators.WeekSkipassDecorator;
+import decorators.WeekendSkipassDecorator;
+import enums.LiftType;
+import enums.SkipassTypes;
+import interfaces.ICard;
 import lift.DaysLift;
-import lift.ILift;
+import interfaces.ILift;
 import lift.NumbersLift;
 
 /**
  * Created by Dell on 28.11.2016.
  */
 public class SkipassStore {
-    public ICard getSkipass(SkipassTypes type,){
+    public ICard generateSkipass(SkipassTypes skipassType, LiftType liftType){
         ICard card;
-        ILift lift;
-        switch (type){
-            case WEEK_DAYS:
-                 lift = generateLift(true);
-                card = new Skipass(lift);
-                card = new WeekSkipassDecorator(card);
+        ILift lift= null;
+
+        switch(liftType){
+            case DAYS:
+                lift = generateDaysLift();
                 break;
-            case WEEK_TIMES:
-                 lift = generateLift(false);
-                break;
-            case WEEKEND_DAYS:
-                lift = generateLift(true);
-                break;
-            case SEASONE:
+            case NUMBERS:
+                lift = generateNumbersLift();
                 break;
             default:
                 break;
         }
-    }
-    public ILift generateLift(boolean isDaysLift){
-        if(isDaysLift){
-            return generateDaysLift();
+        card = new Skipass(lift);
+
+        switch (skipassType){
+            case WEEK:
+                card = new WeekSkipassDecorator(card);
+                break;
+            case WEEKEND:
+                card = new WeekendSkipassDecorator(card);
+                break;
+            case SEASON:
+                card = new SeasonSkipassDecorator(card);
+                break;
+            default:
+                break;
         }
-        else{
-            return generateNumbersLift();
-        }
+        return card;
     }
 
     public DaysLift generateDaysLift(){

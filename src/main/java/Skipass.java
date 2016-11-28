@@ -1,4 +1,5 @@
-import lift.ILift;
+import interfaces.ICard;
+import interfaces.ILift;
 
 /**
  * Created by Dell on 28.11.2016.

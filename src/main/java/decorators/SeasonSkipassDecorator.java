@@ -1,11 +1,13 @@
 package decorators;
 
 
+import interfaces.ICard;
+
 /**
  * Created by Dell on 28.11.2016.
  */
 public class SeasonSkipassDecorator extends SkipassDecorator{
-    public SeasonSkipassDecorator(Card card) {
+    public SeasonSkipassDecorator(ICard card) {
         super(card);
     }
 
@@ -17,7 +19,7 @@ public class SeasonSkipassDecorator extends SkipassDecorator{
         return false;
     }
 
-    public Card getCard(){
+    public ICard getCard(){
         return super.getCard();
     }
 }

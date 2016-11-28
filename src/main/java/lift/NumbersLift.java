@@ -1,5 +1,7 @@
 package lift;
 
+import interfaces.ILift;
+
 /**
  * Created by Dell on 28.11.2016.
  */

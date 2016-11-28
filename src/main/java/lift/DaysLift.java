@@ -1,5 +1,7 @@
 package lift;
 
+import interfaces.ILift;
+
 import java.util.Date;
 
 /**

@@ -1,12 +1,14 @@
 package decorators;
 
 
+import interfaces.ICard;
+
 /**
  * Created by Dell on 28.11.2016.
  */
 public class WeekendSkipassDecorator extends SkipassDecorator {
 
-    public WeekendSkipassDecorator(Card card) {
+    public WeekendSkipassDecorator(ICard card) {
         super(card);
     }
 
@@ -17,7 +19,7 @@ public class WeekendSkipassDecorator extends SkipassDecorator {
     public boolean checkValidation() {
         return false;
     }
-    public Card getCard(){
+    public ICard getCard(){
         return super.getCard();
     }
 }
