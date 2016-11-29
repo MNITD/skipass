@@ -12,7 +12,6 @@ public abstract class SkipassDecorator implements ICard{
         this.card = card;
     }
     public abstract String getType();
-    public abstract boolean checkValidation();
     public ICard getCard(){
         return card;
     }

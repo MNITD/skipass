@@ -5,5 +5,4 @@ package interfaces;
  */
 public interface ILift {
     boolean checkValidation();
-    void getPass();
 }

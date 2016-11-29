@@ -7,6 +7,7 @@ import interfaces.ICard;
  * Created by Dell on 28.11.2016.
  */
 public class SeasonSkipassDecorator extends SkipassDecorator{
+
     public SeasonSkipassDecorator(ICard card) {
         super(card);
     }
@@ -16,10 +17,11 @@ public class SeasonSkipassDecorator extends SkipassDecorator{
     }
 
     public boolean checkValidation() {
-        return false;
+        return getCard().checkValidation();
     }
 
     public ICard getCard(){
         return super.getCard();
     }
+
 }

@@ -7,16 +7,25 @@ import interfaces.ILift;
 public class Skipass implements ICard {
     private ILift liftStrategy;
     private long id;
+    private boolean isActive;
 
-    public Skipass(ILift liftStrategy){
+    public Skipass(ILift liftStrategy, long id){
         this.liftStrategy = liftStrategy;
+        this.id = id;
+        isActive = true;
     }
 
-    public void showBalance() {
-
+    public boolean checkValidation(){
+        return isActive && liftStrategy.checkValidation();
     }
 
-    public void getPass() {
-        liftStrategy.getPass();
+    public long getId() {
+        return id;
+    }
+    public void disable(){
+        isActive = false;
+    }
+    public void reactivate(){
+        isActive = true;
     }
 }
